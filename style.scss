@@ -1,0 +1,817 @@
+:root {
+    --main-blue: #1085ea;
+    --main-lightblue: #19b1d1;
+    --main-purple: #ab47bb;
+    --main-pink: #d22e61;
+    --main-red: #f93b00;
+    --main-orange: #ffe3ca;
+    --main-yellow: #ffea00;
+    --main-white: #ecf0f1;
+    --main-black: #303030;
+}
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./images/background-tint.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+.shopping-cart-modal-background {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0, .7);
+
+    .shopping-cart-modal {
+        position: absolute;
+        width: 600px;
+        height: 100vh;
+        background-color: var(--main-black);
+        border-left: 2px solid black;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        animation: shopping-cart-slide-in .8s ease;
+
+        .shopping-cart-close-button {
+            align-self: flex-start;
+            margin: 9px 10px;
+            cursor: pointer;
+            color: var(--main-blue);
+            transition: all .3s ease;
+        }
+        .shopping-cart-close-button:hover {
+            color: var(--main-white);
+        }
+
+        .shopping-cart-title {
+            font-size: 37px;
+            text-align: center;
+            font-family: sans-serif;
+            color: var(--main-purple);
+        }
+
+        .shopping-cart-items-container {
+            height: 80%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .shopping-cart-items {
+                width: 90%;
+                height: 75%;
+                overflow-y: auto;
+
+                .shopping-cart-items-header-contianer {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: var(--main-lightblue);
+                    border: 2px solid var(--main-blue);
+
+                    .shopping-cart-items-product {
+                        width: 207px;
+                        border-right: 2px solid var(--main-blue);
+                    }
+                    
+                    .shopping-cart-items-title {
+                        width: 207px;
+                        border-right: 2px solid var(--main-blue);
+                    }
+                    
+                    .shopping-cart-items-price {
+                        width: 235px;
+                        border-right: 2px solid var(--main-blue);
+                    }
+                    .shopping-cart-items-remove {
+                        width: 175px;
+                        border-right: 2px solid var(--main-blue);
+                    }
+                }
+
+                .shopping-cart-items-info {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 120px;
+                    width: 100%;
+                    border-left: 2px solid var(--main-blue);
+                    border-bottom: 2px solid var(--main-blue);
+                    border-right: 2px solid var(--main-blue);
+                    color: var(--main-white);
+
+                    .shopping-cart-items-image-container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-right: 2px solid var(--main-blue);
+                        height: 100%;
+                        width: 200px;
+
+                        .shopping-cart-items-image {
+                            height: 80px;
+                        }
+                    }
+                    
+                    .shopping-cart-items-title {
+                        height: 100%;
+                        width: 200px;
+                        padding: 22px 0;
+                        text-align: center;
+                        border-right: 2px solid var(--main-blue);
+                    }
+
+                    .shopping-cart-items-price-container {
+                        padding: 31px 0;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-direction: column;
+                        border-right: 2px solid var(--main-blue);
+
+                        .shopping-cart-items-prices {
+                            text-align: center;
+                            width: 150px;
+                        }
+
+                        .shopping-cart-items-quantity-container {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            width: 30%;
+
+                            .quantity-down,
+                            .quantity-up {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .shopping-cart-items-remove-container {
+                        width: 170px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .shopping-cart-items-remove {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .shopping-cart-button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 9%;
+
+            .total {
+                color: var(--main-purple);
+            }
+            
+            .shopping-cart-button-text {
+                font-size: 19px;
+                padding: 1px 10px;
+                border: 2px solid black;
+                transition: all .3s ease;
+            }
+            .shopping-cart-button-text:hover {
+                font-size: 19px;
+                padding: 1px 10px;
+                border: 2px solid var(--main-blue);
+                background-color: var(--main-lightblue);
+            }
+        }
+    }
+}
+.shopping-cart-modal-background.hidden {
+    display: none;
+}
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-black);
+    height: 4.5vh;
+    border-bottom: 3px solid var(--main-red);
+
+    .navigation-bar-left {
+        width: 10%;
+        text-align: center;
+    }
+    
+    .navigation-bar-right {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 5%;
+
+        .shopping-cart-modal-button {
+            cursor: pointer;
+        }
+        .shopping-cart-modal-button:hover {
+            color: black;
+            cursor: pointer;
+        }
+    }
+
+    .navigation-bar-text {
+        font-family: sans-serif;
+        font-size: 25px;
+        text-decoration: none;
+        color: var(--main-white);
+    }
+}
+
+.product-div {
+    height: 60vh;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .product-div-title {
+        width: 30%;
+        color: var(--main-yellow);
+        font-family: 'Righteous', cursive;
+        text-align: center;
+        text-shadow: 1px 1px 3px var(--main-white);
+        font-size: 40px;
+        padding: 20px 0;
+    }
+
+    .product-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 70px;
+
+        .product {
+            height: 50%;
+            width: 45%;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--main-orange);
+            border: 3px solid var(--main-red);
+
+            .product-image {
+                height: 250px;
+                width: 250px;
+                border: 2px solid var(--main-black);
+            }
+
+            .product-info-container {
+                height: 70%;
+                width: 60%;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-direction: column;
+                border-left: 2px solid var(--main-black);
+                padding-left: 40px;
+                font-family: sans-serif;
+                color: var(--main-black);
+
+                .product-title {
+                    font-size: 30px;
+                    letter-spacing: 1px;
+                }
+
+                .product-price-cart-container {
+                    display: flex;
+                    justify-content: space-around;
+                    align-self: center;
+                    width: 50%;
+
+                    .product-add-to-cart {
+                        font-size: 19px;
+                        border: 2px solid var(--main-red);
+                        padding: 1px 15px;
+                        background-color: var(--main-white);
+                        align-self: center;
+                        transition: all .3s ease;
+                    }
+                    .product-add-to-cart:hover {
+                        background-color: var(--main-red);
+                        border: 2px solid black;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 4:3 Monitor ------ Finished ------
+@media (max-width: 1280px) and (max-height: 871px) {
+    .navigation-bar-left {
+        width: 17% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 10% !important;
+    }
+
+    .product-div-title {
+        width: 40% !important;
+    }
+
+    .product-image {
+        height: 150px !important;
+        width: 150px !important;
+    }
+
+    .product-info-container{
+        height: 90% !important;
+
+        .product-price-cart-container {
+            width: 80% !important;
+    
+            .product-add-to-cart {
+                width: 60% !important;
+            }
+        }
+    }
+}
+
+// Kindle Fire HDX Linux ------ Finished ------
+@media (max-width: 800px) and (max-height: 1280px) {
+    .navigation-bar-left {
+        width: 22% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 10% !important;
+    }
+
+    .product {
+        width: 80% !important;
+        height: 30% !important;
+    }
+
+    .product-div-title {
+        width: 60% !important;
+    }
+
+    .product-image {
+        height: 150px !important;
+        width: 150px !important;
+    }
+
+    .product-info-container{
+        height: 90% !important;
+
+        .product-price-cart-container {
+            width: 80% !important;
+    
+            .product-add-to-cart {
+                width: 60% !important;
+            }
+        }
+    }
+}
+
+// iPad ------ Finished ------
+@media (max-width: 1024px) and (max-height: 768px) {
+    .navigation-bar {
+        height: 6vh !important;
+    }
+
+    .product-div-title {
+        width: 50% !important;
+    }
+
+    .product-info-container{
+        height: 90% !important;
+
+        .product-price-cart-container {
+            width: 100% !important;
+    
+            .product-add-to-cart {
+                width: 60% !important;
+            }
+        }
+    }
+}
+@media (max-width: 768px) and (max-height: 1024px) {
+    .navigation-bar-left {
+        width: 23% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 10% !important;
+    }
+
+    .product {
+        height: 60% !important;
+        width: 80% !important;
+    }
+
+    .product-div-title {
+        width: 70% !important;
+    }
+
+    .product-container {
+        height: 70% !important;
+    }
+
+    .product-image {
+        height: 150px !important;
+        width: 150px !important;
+    }
+
+    .product-info-container{
+        height: 90% !important;
+
+        .product-price-cart-container {
+            width: 80% !important;
+    
+            .product-add-to-cart {
+                width: 60% !important;
+            }
+        }
+    }
+}
+
+// Multitasking ------ Finished ------
+@media (max-width: 958px) and (max-height: 926px) {
+    .navigation-bar-left {
+        width: 22% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 10% !important;
+    }
+
+    .product {
+        width: 80% !important;
+        height: 40% !important;
+    }
+
+    .product-div-title {
+        width: 60% !important;
+    }
+
+    .product-image {
+        height: 150px !important;
+        width: 150px !important;
+    }
+
+    .product-info-container{
+        height: 90% !important;
+
+        .product-price-cart-container {
+            width: 80% !important;
+    
+            .product-add-to-cart {
+                width: 60% !important;
+            }
+        }
+    }
+}
+
+// iPhone 6/7/8 Plus iOS 11 ------ Finished  ------
+@media (max-width: 736px) and (max-height: 414px) {
+    .shopping-cart-button-container {
+        margin-bottom: 20px !important;
+    }
+
+    .navigation-bar {
+        height: 11vh !important;
+    }
+
+    .product-div-title {
+        width: 70% !important;
+    }
+
+    .product {
+        height: 100% !important;
+
+        .product-info-container{
+            height: 90% !important;
+    
+            .product-price-cart-container {
+                width: 100% !important;
+        
+                .product-add-to-cart {
+                    width: 60% !important;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 414px) and (max-height: 736px) {
+    .shopping-cart-modal {
+        width: 100% !important;
+
+        
+        .shopping-cart-items-image-container {
+            width: 325px !important;
+        }
+        
+        .cart-title {
+            font-size: 15px !important;
+            width: 320px !important;
+        }
+
+        .shopping-cart-items-price-container {
+            width: 102px !important;
+        }
+
+        .shopping-cart-items-remove-container {
+            width: 310px !important;
+        }
+    }
+
+    .navigation-bar-left {
+        width: 40% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 20% !important;
+    }
+
+    .product-div {
+        height: 120vh !important;
+    }
+
+    .product-div-title {
+        width: 90% !important;
+        font-size: 31px !important;
+    }
+
+    .product-container {
+        height: 100% !important;
+
+        .product {
+            flex-direction: column;
+
+            .product-info-container {
+                width: 100% !important;
+                border: none !important;
+                padding: 0 !important;
+
+                .product-price-cart-container {
+                    width: 100% !important;
+                    border-top: 2px solid black;
+                    padding: 10px 0 !important;
+            
+                    .product-add-to-cart {
+                        width: 50% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// iPhone X/XS iOS 12 ------ Finished ------
+@media (max-width: 812px) and (max-height: 375px) {
+    .shopping-cart-button-container {
+        margin-bottom: 20px !important;
+    }
+
+    .navigation-bar {
+        height: 11vh !important;
+
+        .navigation-bar-left {
+            width: 20% !important;
+        }
+    }
+
+    .product-div-title {
+        width: 70% !important;
+    }
+
+    .product {
+        height: 100% !important;
+        width: 70% !important;
+
+        .product-info-container{
+            height: 90% !important;
+    
+            .product-price-cart-container {
+                width: 100% !important;
+        
+                .product-add-to-cart {
+                    width: 60% !important;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 375px) and (max-height: 812px) {
+    .shopping-cart-modal {
+        width: 100% !important;
+
+        
+        .shopping-cart-items-image-container {
+            width: 340px !important;
+        }
+        
+        .cart-title {
+            font-size: 17px !important;
+            width: 360px !important;
+        }
+
+        .shopping-cart-items-price-container {
+            width: 87px !important;
+        }
+
+        .shopping-cart-items-remove-container {
+            width: 400px !important;
+        }
+    }
+
+    .navigation-bar {
+        height: 6vh !important;
+    }
+
+    .navigation-bar-left {
+        width: 50% !important;
+    }
+    
+    .navigation-bar-right {
+        width: 20% !important;
+    }
+
+    .product-div {
+        height: 100vh !important;
+    }
+
+    .product-div-title {
+        width: 90% !important;
+        font-size: 28px !important;
+    }
+
+    .product-container {
+        height: 100% !important;
+
+        .product {
+            flex-direction: column;
+            height: 45% !important;
+
+            .product-info-container {
+                width: 100% !important;
+                border: none !important;
+                padding: 0 !important;
+
+                .product-price-cart-container {
+                    width: 100% !important;
+                    border-top: 2px solid black;
+                    padding: 10px 0 !important;
+            
+                    .product-add-to-cart {
+                        width: 50% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Galaxy S9/S9+ Android 7.0 ------ Finished ------
+@media (max-width: 740px) and (max-height: 360px) {
+    .navigation-bar {
+        height: 11vh !important;
+
+        .navigation-bar-left {
+            width: 25% !important;
+        }
+    }
+
+    .product-div-title {
+        width: 70% !important;
+    }
+
+    .product-div {
+        height: 75vh !important;
+    }
+
+    .product {
+        height: 100% !important;
+        width: 70% !important;
+
+        .product-info-container{
+            height: 90% !important;
+    
+            .product-price-cart-container {
+                width: 100% !important;
+        
+                .product-add-to-cart {
+                    width: 60% !important;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 360px) and (max-height: 740px) {
+    .shopping-cart-modal {
+        width: 100% !important;
+
+        
+        .shopping-cart-items-image-container {
+            width: 340px !important;
+        }
+        
+        .cart-title {
+            font-size: 17px !important;
+            width: 330px !important;
+        }
+
+        .shopping-cart-items-price-container {
+            width: 79px !important;
+        }
+
+        .shopping-cart-items-remove-container {
+            width: 400px !important;
+        }
+    }
+
+    .product-div {
+        height: 120vh !important;
+    }
+
+    .product {
+        height: 90% !important;
+    }
+
+    .product-div-title {
+        width: 100% !important;
+    }
+}
+
+// iPhone 6/7/8 iOS 11 ------ Finished ------
+@media (max-width: 667px) and (max-height: 375px) {
+    .navigation-bar {
+        height: 12vh !important;
+        
+        .navigation-bar-left {
+            width: 25% !important;
+        }
+    }
+
+    .product-div {
+        height: 75vh !important;
+
+        .product-div-title {
+            width: 80% !important;
+        }
+    }
+}
+@media (max-width: 375px) and (max-height: 667px) {
+    .shopping-cart-modal {
+        width: 100% !important;
+
+        
+        .shopping-cart-items-image-container {
+            width: 340px !important;
+        }
+        
+        .cart-title {
+            font-size: 17px !important;
+            width: 360px !important;
+        }
+
+        .shopping-cart-items-price-container {
+            width: 87px !important;
+        }
+
+        .shopping-cart-items-remove-container {
+            width: 400px !important;
+        }
+    }
+
+    .product-div {
+        height: 120vh !important;
+    }
+}
+
+@keyframes shopping-cart-slide-in {
+    0% {
+        transform: translateX(600px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

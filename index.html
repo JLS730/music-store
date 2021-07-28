@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> 
+        <script src="./src/index.js" type="module" defer></script>
+        <title>Audio Out</title>
+    </head>
+    <body>
+        <div class="shopping-cart-modal-background hidden">
+            <div class="shopping-cart-modal">
+                <i class="far fa-window-close fa-2x shopping-cart-close-button"></i>
+                <h2 class="shopping-cart-title">Shopping Cart (<span class="shopping-cart-title-number">0</span>)</h2>
+                <div class="shopping-cart-items-container">
+                    <div class="shopping-cart-items">
+                        <div class="shopping-cart-items-header-contianer">
+                            <h2 class="shopping-cart-items-product">Product</h2>
+                            <h2 class="shopping-cart-items-title">Title</h2>
+                            <h2 class="shopping-cart-items-price">Price</h2>
+                            <h2 class="shopping-cart-items-remove">Remove</h2>
+                        </div>
+                        <div class="shopping-cart-items-info-container"></div>
+                    </div>
+                </div>
+                <div class="shopping-cart-button-container">
+                    <h2 class="total">Total: $0.00</h2>
+                    <button class="shopping-cart-purchase-button shopping-cart-button-text">Purchase</button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navigation-bar">
+            <div class="navigation-bar-left">
+                <h2 class="navigation-bar-left-logo navigation-bar-text">Audio <i class="fas fa-music"></i> Out</h2>
+            </div>
+            <div class="navigation-bar-right">
+                <h2 class="navigation-bar-right-shopping-cart navigation-bar-text"><i class="fas fa-shopping-cart fa-lg shopping-cart-modal-button"></i> <span class="shopping-cart-amount">0</span></h2>
+            </div>
+        </nav>
+
+        <div class="product-div">
+            <h2 class="product-div-title">Audio Out's Top 10 Picks</h2>
+            <div class="product-container">
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album0.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Michael Jackson</h3>
+                        <h2 class="product-title">Thriller</h2>
+                        <h3 class="product-year">Year Released: 1982</h3>
+                        <h3 class="product-genre">Genre: Pop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$19.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album1.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Kendrick Lamar</h3>
+                        <h2 class="product-title">To Pimp A Butterfly</h2>
+                        <h3 class="product-year">Year Released: 2015</h3>
+                        <h3 class="product-genre">Genre: Hip-Hop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$14.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album2.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">C&eacute;u</h3>
+                        <h2 class="product-title">C&eacute;u</h2>
+                        <h3 class="product-year">Year Released: 2005</h3>
+                        <h3 class="product-genre">Genre: Jazz</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$17.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album3.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Pink Floyd</h3>
+                        <h2 class="product-title">The Wall</h2>
+                        <h3 class="product-year">Year Released: 1979</h3>
+                        <h3 class="product-genre">Genre: Rock</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$19.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album4.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Outkast</h3>
+                        <h2 class="product-title">Stankonia</h2>
+                        <h3 class="product-year">Year Released: 2000</h3>
+                        <h3 class="product-genre">Genre: Hip-Hop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$17.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album5.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Kanye West</h3>
+                        <h2 class="product-title">Late Registration</h2>
+                        <h3 class="product-year">Year Released: 2005</h3>
+                        <h3 class="product-genre">Genre: Hip-Hop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$17.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album6.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">J. Cole</h3>
+                        <h2 class="product-title">2014 Forest Hills Drive</h2>
+                        <h3 class="product-year">Year Released: 2014</h3>
+                        <h3 class="product-genre">Genre: Hip-Hop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$14.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album7.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Jay Som</h3>
+                        <h2 class="product-title">Turn Into</h2>
+                        <h3 class="product-year">Year Released: 2016</h3>
+                        <h3 class="product-genre">Genre: Pop</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$14.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album8.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Fleetwood Mac</h3>
+                        <h2 class="product-title">Rumours</h2>
+                        <h3 class="product-year">Year Released: 1977</h3>
+                        <h3 class="product-genre">Genre: Rock</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$19.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="product-image" src="./images/album-art/album9.jpg" alt="">
+                    <div class="product-info-container">
+                        <h3 class="product-artist">Pierce The Veil</h3>
+                        <h2 class="product-title">Selfish Machines</h2>
+                        <h3 class="product-year">Year Released: 2010</h3>
+                        <h3 class="product-genre">Genre: Rock</h3>
+                        <div class="product-price-cart-container">
+                            <h2 class="product-price">$14.99</h2>
+                            <button class="product-add-to-cart">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>
